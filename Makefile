@@ -6,15 +6,16 @@ CACHES = --caches
 L2 = --l2cache
 C = -c
 O = -o
-LLISIZE = --lli_size
-LLDSIZE = --lld_size
+L1ISIZE = --l1i_size
+L1DSIZE = --l1d_size
 L2SIZE = --l2_size
-LLIASSOC = --lli_assoc
-LLDASSOC = --lld_assoc
+L1IASSOC = --l1i_assoc
+L1DASSOC = --l1d_assoc
 L2ASSOC = --l2_assoc
 CACHELINE = --cacheline_size
 CLOCK = --cpu-clock
 INSTRUCTIONS = -I 100000000
+
 
 # First round, using default parameters.
 spebzip_1:
@@ -35,7 +36,7 @@ speclibm_1:
 
 # Every test round from now on uses different values for caches and CPU clock.
 spebzip_2:
-	$(ARM) $(D) spec_results/specbzip_2 $(SE) $(TYPE) $(CLOCK) $(CACHES) $(L2) $(LLISIZE) $(LLDSIZE) $(L2SIZE) $(LLIASSOC) $(LLDASSOC) $(L2ASSOC) $(CACHELINE) $(C) spec_cpu2006/401.bzip2/src/specbzip $(O) "spec_cpu2006/401.bzip2/data/input.program 10" $(INSTRUCTIONS)
+	$(ARM) $(D) spec_results/specbzip_2 $(SE) $(TYPE) $(CLOCK)=1.5GHz $(CACHES) $(L2) $(LLISIZE)=64kB $(LLDSIZE)=64kB $(L2SIZE)=1MB $(LLIASSOC)=1 $(LLDASSOC)=1 $(L2ASSOC)=2 $(CACHELINE)=64 $(C) spec_cpu2006/401.bzip2/src/specbzip$(O) "spec_cpu2006/401.bzip2/data/input.program 10" $(INSTRUCTIONS)
 
 specmcf_2:
 	$(ARM) $(D) spec_results/specmcf_2 $(SE) $(TYPE) $(CLOCK) $(CACHES) $(L2) $(LLISIZE) $(LLDSIZE) $(L2SIZE) $(LLIASSOC) $(LLDASSOC) $(L2ASSOC) $(CACHELINE) $(C) spec_cpu2006/429.mcf/src/specmcf $(O) "spec_cpu2006/429.mcf/data/inp.in" $(INSTRUCTIONS)
