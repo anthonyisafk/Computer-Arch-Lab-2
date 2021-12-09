@@ -1,0 +1,1 @@
+Benchmarks	sim_seconds	system.cpu.cpi	system.cpu.committedInsts	system.cpu.committedOps	system.cpu.dcache.overall_misses::.cpu.data	system.cpu.icache.overall_misses::.cpu.inst	system.l2.overall_misses::total	system.l2.overall_accesses::total	system.cpu.dcache.replacements
