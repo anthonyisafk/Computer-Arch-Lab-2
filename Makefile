@@ -52,7 +52,7 @@ speclibm_2:
 
 
 specbzip_3:
-	$(ARM) $(D) spec_results/specbzip_3 $(SE) $(CLOCK)=1.5GHz $(CACHES) $(L2) $(L1ISIZE)=256kB $(L1DSIZE)=64kB $(L2SIZE)=1MB $(L1IASSOC)=2 $(L1DASSOC)=1 $(L2ASSOC)=2 $(CACHELINE)=32 $(C) spec_cpu2006/401.bzip2/src/specbzip $(O) "spec_cpu2006/401.bzip2/data/input.program 10" $(INSTRUCTIONS)
+	$(ARM) $(D) spec_results/specbzip_3 $(SE) $(TYPE) $(CLOCK)=1.5GHz $(CACHES) $(L2) $(L1ISIZE)=256kB $(L1DSIZE)=64kB $(L2SIZE)=1MB $(L1IASSOC)=2 $(L1DASSOC)=1 $(L2ASSOC)=2 $(CACHELINE)=32 $(C) spec_cpu2006/401.bzip2/src/specbzip $(O) "spec_cpu2006/401.bzip2/data/input.program 10" $(INSTRUCTIONS)
 
 specmcf_3:
 	$(ARM) $(D) spec_results/specmcf_3 $(SE) $(TYPE) $(CLOCK)=1.5GHz $(CACHES) $(L2) $(L1ISIZE)=256kB $(L1DSIZE)=64kB $(L2SIZE)=1MB $(L1IASSOC)=2 $(L1DASSOC)=1 $(L2ASSOC)=2 $(CACHELINE)=32 $(C) spec_cpu2006/429.mcf/src/specmcf $(O) "spec_cpu2006/429.mcf/data/inp.in" $(INSTRUCTIONS)
