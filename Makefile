@@ -6,14 +6,14 @@ CACHES = --caches
 L2 = --l2cache
 C = -c
 O = -o
-LLISIZE = --lli_size=
-LLDSIZE = --lld_size=
-L2SIZE = --l2_size=
-LLIASSOC = --lli_assoc=
-LLDASSOC = --lld_assoc=
-L2ASSOC = --l2_assoc=
-CACHELINE = --cacheline_size=
-CLOCK = --cpu-clock=
+LLISIZE = --lli_size
+LLDSIZE = --lld_size
+L2SIZE = --l2_size
+LLIASSOC = --lli_assoc
+LLDASSOC = --lld_assoc
+L2ASSOC = --l2_assoc
+CACHELINE = --cacheline_size
+CLOCK = --cpu-clock
 INSTRUCTIONS = -I 100000000
 
 # First round, using default parameters.
