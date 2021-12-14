@@ -52,8 +52,8 @@ In the stats.txt file we extracted after the completion of the simulations, we w
 
 We can see the differences in these statistics among the 5 benchmarks more clearly in the following graphs:
 
-![CPI and simulation times with default options](output\round1\info.jpeg)
-![Miss rates with default options](output\round1\miss_rates.jpeg)
+![CPI and simulation times with default options](./output/round1/info.jpeg)
+![Miss rates with default options](./output/round1/miss_rates.jpeg)
 
 3. Next, we ran the same set of bechmarks on a simulated system, which was exactly the same as before, with the only difference being that the *Clock Rate* was __1.5GHz__
 instead of __1GHz__ . We were able to change this parameter by adding a *CLOCK* variable in *MakeFile*: `(CLOCK = --cpu-clock)` and making it equal to 1.5GHz and 2GHz for the last simulation rounds.
@@ -100,8 +100,8 @@ In this part we ran 9 rounds of simulations of the above mentioned benchmarks. I
 * Cache Line Size
 * Data Cache , Instruction Cache and L2 Cache Size
 
-![General info per simulation for specbzip](output\general\specbzip_general.jpeg)
-![Miss rates per simulations for specsjeng](output\misses\specbzip_misses.png)
+![General info per simulation for specbzip](./output/general/specbzip_general.jpeg)
+![Miss rates per simulations for specsjeng](./output/misses/specbzip_misses.png)
 
 **Please note, all the graphs we produced can be found in [the output folder](./output)**
 
