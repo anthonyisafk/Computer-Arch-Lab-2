@@ -1,3 +1,5 @@
+# Plots graphs on miss rates for each benchmark, using StatsPlots.
+
 using DataFrames, CSV
 using Plots, StatsPlots
 
@@ -30,7 +32,7 @@ for i = 1:5
         markercolor = :red3,
         linestyle = :dot,
         linecolor = :red3,
-        label = "L1I misses"
+        label = "L1I miss_rates"
     );
 
     g = Plots.plot(
@@ -39,5 +41,5 @@ for i = 1:5
         plot_title = benchmarks[i]
     );
 
-    Plots.savefig(g, benchmarks[i] * "_misses.png");
+    Plots.savefig(g, "../output/misses/" * benchmarks[i] * "_misses.png");
 end
