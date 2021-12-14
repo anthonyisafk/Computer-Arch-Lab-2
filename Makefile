@@ -217,8 +217,6 @@ round9: specbzip_9 specmcf_9 spechmmer_9 specsjeng_9 speclibm_9
 round10: specbzip_10 specmcf_10 spechmmer_10 specsjeng_10 speclibm_10
 
 round11: specbzip_11 specmcf_11 spechmmer_11 specsjeng_11 speclibm_11
-
-remainders: specbzip_5 specmcf_5 spechmmer_5 specsjeng_5 speclibm_5 specbzip_6 specmcf_6 spechmmer_6 specsjeng_6 speclibm_6 specbzip_7 specmcf_7 spechmmer_7 specsjeng_7 speclibm_7 specbzip_8 specmcf_8 spechmmer_8 specsjeng_8 speclibm_8 specbzip_9 specmcf_9 spechmmer_9 specsjeng_9 speclibm_9 specbzip_10 specmcf_10 spechmmer_10 specsjeng_10 speclibm_10
 =======
 round10: specbzip_10 specmcf_10 spechmmer_10 specsjeng_10 speclibm_10
 >>>>>>> 38752371572e63706e438544b8eb73ff2540a0c6
