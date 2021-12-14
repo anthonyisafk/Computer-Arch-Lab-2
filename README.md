@@ -74,6 +74,14 @@ In this part we ran 9 rounds of simulations of the above mentioned benchmarks. I
 
 Let's take *specbzip* for example, which had an indicative behaviour as to the most common. As we look at the CPI graph, we can clearly see a massive drop between rounds 3 and 4. The CPI goeas back up again for rounds 6 and 7 and after round 8 we see an even bigger drop. All we did in the fourth round was a change of L1D Cache from 64kb to 128kb and an increase of the cache line size from 32byte to 64byte. These type of changes seemed to affect the CPI more than any other change we made. Increasing the line size also increases the block size, so, in this way, the memory subsystem shows better support of the spatial locallity, which has shown to have a great impact on the system's performance on most types of processes.
 /
-The size increase of the DCache, on the other hand, is obvious to affect performance positively because the miss rate is greatly reduced.
+The size increase of the DCache, on the other hand, is more obvious to affect performance in a positive way. The miss rate is greatly reduced as more blocks are easily accesible from the processor inside the cache itself. Bigger cache sizes result in slower  
 /
 In general, these were the most impactful changes that benefited the performance. 
+
+#### Part 3 - Cost / Performance Optimization
+
+Architecture optimization subsequently means constant concern for cost optimization as well. There are certain factors that affect implementation and manufacturing costs. In general:
+
+*  __Cache size__ increases the cost of manufacturing because of more materials being used. Also hardware speed is reduced.
+
+* __Cache Associativity__ increase results in more complex hardware so 
