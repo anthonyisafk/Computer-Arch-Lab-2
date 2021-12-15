@@ -115,30 +115,29 @@ In general, these were the most impactful changes that benefited the performance
 
 Architecture optimization subsequently means constant concern for cost optimization as well. There are certain factors that affect implementation and manufacturing costs. In general:
 
-<<<<<<< HEAD
 *  __Cache size__ increases the cost of manufacturing and hit time.
-=======
-* __Cache size__ increases the cost of manufacturing because of more materials being used. Also hardware speed is reduced.
->>>>>>> 8bbd2152a48358d21f8356220aaace7c8585c01c
 
 * __Cache Associativity__ increase results in more complex hardware so the cost is somewhat increased. There is a significant decrease CPI because of smaller miss rates.
+
+We composed a __cost function__ that compares the cost of the changes we make to the caches to the *speedup* they offer.
+The system configuration that secures the lowest cost function value is the ideal.
 
 Cost = ( 5 * l1cache.size + l2cache.size ) * sqrt( assoc ) 
 
 1. Specbzip
 
-|          | icache.size | dcache.size | l2cache.size | icache.assoc | dcache.assoc | l2cache.assoc | COST FUNC  | CPI       |
-| -------- | ----------- | ----------- | ------------ | ------------ | ------------ | ------------- | ---------- | --------- |
-| round 1  | 32KB        | 64KB        | 2MB          | 2            | 2            | 8             | X          | 1.679650  |
-| round 2  | 128KB       | 64KB        | 1MB          | 1            | 2            | 2             |            |           |
-| round 3  | 256KB       | 64KB        | 1MB          | 2            | 4            | 2             |            |           |
-| round 4  | 256KB       | 128KB       | 1MB          | 2            | 2            | 2             | X          | 1.679650  |
-| round 5  | 256KB       | 128KB       | 1MB          | 2            | 2            | 2             |            |           |
-| round 6  | 256KB       | 128KB       | 1MB          | 2            | 4            | 2             |            |           |
-| round 7  | 512KB       | 128KB       | 1MB          | 2            | 2            | 2             | X          | 1.679650  |
-| round 8  | 512KB       | 128KB       | 1MB          | 4            | 2            | 2             |            |           |
-| round 9  | 512KB       | 256KB       | 1MB          | 4            | 4            | 2             |            |           |
-| round 10 | 512KB       | 256KB       | 2MB          | 4            | 2            | 4             | X          | 1.679650  |
-| round 11 | 32KB        | 64KB        | 2MB          | 2            | 2            | 4             |            |           |
-| round 12 | 256KB       | 256KB       | 4MB          | 2            | 2            | 8             |            |           |
-| round 13 | 256KB       | 256KB       | 4MB          | 4            | 4            | 8             |            |           |
+|          | icache.size | dcache.size | l2cache.size | icache.assoc | dcache.assoc | l2cache.assoc |
+| -------- | ----------- | ----------- | ------------ | ------------ | ------------ | ------------- |
+| round 1  | 32KB        | 64KB        | 2MB          | 2            | 2            | 8             |
+| round 2  | 128KB       | 64KB        | 1MB          | 1            | 1            | 2             |
+| round 3  | 256KB       | 64KB        | 1MB          | 2            | 1            | 2             |
+| round 4  | 256KB       | 128KB       | 1MB          | 2            | 2            | 2             |
+| round 5  | 256KB       | 128KB       | 1MB          | 2            | 2            | 2             |
+| round 6  | 256KB       | 128KB       | 1MB          | 2            | 2            | 2             |
+| round 7  | 512KB       | 128KB       | 1MB          | 2            | 2            | 2             |
+| round 8  | 512KB       | 128KB       | 1MB          | 4            | 1            | 2             |
+| round 9  | 512KB       | 256KB       | 1MB          | 4            | 2            | 4             |
+| round 10 | 512KB       | 256KB       | 2MB          | 4            | 2            | 4             |
+| round 11 | 32KB        | 64KB        | 2MB          | 2            | 2            | 4             |
+| round 12 | 256KB       | 256KB       | 4MB          | 2            | 2            | 8             |
+| round 13 | 256KB       | 256KB       | 4MB          | 4            | 4            | 8             |
