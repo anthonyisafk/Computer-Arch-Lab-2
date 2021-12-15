@@ -196,37 +196,35 @@ speclibm_11:
 
 
 specbzip_12:
-	$(ARM) $(D) spec_results/specbzip_12 $(SE) $(TYPE) $(CLOCK)=2GHz $(CACHES) $(L2) $(L1ISIZE)=256kB $(L1DSIZE)=256kB $(L2SIZE)=4MB $(L1IASSOC)=2 $(L1DASSOC)=2 $(L2ASSOC)=8 $(CACHELINE)=256 $(C) spec_cpu2006/401.bzip2/src/specbzip $(O) "spec_cpu2006/401.bzip2/data/input.program 10" $(INSTRUCTIONS)
+	$(ARM) $(D) spec_results/specbzip_12 $(SE) $(TYPE) $(CLOCK)=2GHz $(CACHES) $(L2) $(L1ISIZE)=256kB $(L1DSIZE)=256kB $(L2SIZE)=4MB $(L1IASSOC)=2 $(L1DASSOC)=2 $(L2ASSOC)=8 $(CACHELINE)=128 $(C) spec_cpu2006/401.bzip2/src/specbzip $(O) "spec_cpu2006/401.bzip2/data/input.program 10" $(INSTRUCTIONS)
 
 specmcf_12:
-	$(ARM) $(D) spec_results/specmcf_12 $(SE) $(TYPE) $(CLOCK)=2GHz $(CACHES) $(L2) $(L1ISIZE)=256kB $(L1DSIZE)=256kB $(L2SIZE)=4MB $(L1IASSOC)=2 $(L1DASSOC)=2 $(L2ASSOC)=8 $(CACHELINE)=256 $(C) spec_cpu2006/429.mcf/src/specmcf $(O) "spec_cpu2006/429.mcf/data/inp.in" $(INSTRUCTIONS)
+	$(ARM) $(D) spec_results/specmcf_12 $(SE) $(TYPE) $(CLOCK)=2GHz $(CACHES) $(L2) $(L1ISIZE)=256kB $(L1DSIZE)=256kB $(L2SIZE)=4MB $(L1IASSOC)=2 $(L1DASSOC)=2 $(L2ASSOC)=8 $(CACHELINE)=128 $(C) spec_cpu2006/429.mcf/src/specmcf $(O) "spec_cpu2006/429.mcf/data/inp.in" $(INSTRUCTIONS)
 
 spechmmer_12:
-	$(ARM) $(D) spec_results/spechmmer_12 $(SE) $(TYPE) $(CLOCK)=2GHz $(CACHES) $(L2) $(L1ISIZE)=256kB $(L1DSIZE)=256kB $(L2SIZE)=4MB $(L1IASSOC)=2 $(L1DASSOC)=2 $(L2ASSOC)=8 $(CACHELINE)=256 $(C) spec_cpu2006/456.hmmer/src/spechmmer $(O) "--fixed 0 --mean 325 --num 45000 --sd 200 --seed 0 spec_cpu2006/456.hmmer/data/bombesin.hmm" $(INSTRUCTIONS)
+	$(ARM) $(D) spec_results/spechmmer_12 $(SE) $(TYPE) $(CLOCK)=2GHz $(CACHES) $(L2) $(L1ISIZE)=256kB $(L1DSIZE)=256kB $(L2SIZE)=4MB $(L1IASSOC)=2 $(L1DASSOC)=2 $(L2ASSOC)=8 $(CACHELINE)=128 $(C) spec_cpu2006/456.hmmer/src/spechmmer $(O) "--fixed 0 --mean 325 --num 45000 --sd 200 --seed 0 spec_cpu2006/456.hmmer/data/bombesin.hmm" $(INSTRUCTIONS)
 
 specsjeng_12:
-	$(ARM) $(D) spec_results/specsjeng_12 $(SE) $(TYPE) $(CLOCK)=2GHz $(CACHES) $(L2) $(L1ISIZE)=256kB $(L1DSIZE)=256kB $(L2SIZE)=4MB $(L1IASSOC)=2 $(L1DASSOC)=2 $(L2ASSOC)=8 $(CACHELINE)=256 $(C) spec_cpu2006/458.sjeng/src/specsjeng $(O) "spec_cpu2006/458.sjeng/data/test.txt" $(INSTRUCTIONS)
+	$(ARM) $(D) spec_results/specsjeng_12 $(SE) $(TYPE) $(CLOCK)=2GHz $(CACHES) $(L2) $(L1ISIZE)=256kB $(L1DSIZE)=256kB $(L2SIZE)=4MB $(L1IASSOC)=2 $(L1DASSOC)=2 $(L2ASSOC)=8 $(CACHELINE)=128 $(C) spec_cpu2006/458.sjeng/src/specsjeng $(O) "spec_cpu2006/458.sjeng/data/test.txt" $(INSTRUCTIONS)
 
 speclibm_12:
-	$(ARM) $(D) spec_results/speclibm_12 $(SE) $(TYPE) $(CLOCK)=2GHz $(CACHES) $(L2) $(L1ISIZE)=256kB $(L1DSIZE)=256kB $(L2SIZE)=4MB $(L1IASSOC)=2 $(L1DASSOC)=2 $(L2ASSOC)=8 $(CACHELINE)=256 $(C) spec_cpu2006/470.lbm/src/speclibm $(O) "20 spec_cpu2006/470.lbm/data/lbm.in 0 1 spec_cpu2006/470.lbm/data/100_100_130_cf_a.of" $(INSTRUCTIONS)
+	$(ARM) $(D) spec_results/speclibm_12 $(SE) $(TYPE) $(CLOCK)=2GHz $(CACHES) $(L2) $(L1ISIZE)=256kB $(L1DSIZE)=256kB $(L2SIZE)=4MB $(L1IASSOC)=2 $(L1DASSOC)=2 $(L2ASSOC)=8 $(CACHELINE)=128 $(C) spec_cpu2006/470.lbm/src/speclibm $(O) "20 spec_cpu2006/470.lbm/data/lbm.in 0 1 spec_cpu2006/470.lbm/data/100_100_130_cf_a.of" $(INSTRUCTIONS)
 
 
 specbzip_13:
-	$(ARM) $(D) spec_results/specbzip_13 $(SE) $(TYPE) $(CLOCK)=2GHz $(CACHES) $(L2) $(L1ISIZE)=256kB $(L1DSIZE)=256kB $(L2SIZE)=4MB $(L1IASSOC)=4 $(L1DASSOC)=4 $(L2ASSOC)=8 $(CACHELINE)=256 $(C) spec_cpu2006/401.bzip2/src/specbzip $(O) "spec_cpu2006/401.bzip2/data/input.program 10" $(INSTRUCTIONS)
+	$(ARM) $(D) spec_results/specbzip_13 $(SE) $(TYPE) $(CLOCK)=2GHz $(CACHES) $(L2) $(L1ISIZE)=256kB $(L1DSIZE)=256kB $(L2SIZE)=4MB $(L1IASSOC)=4 $(L1DASSOC)=4 $(L2ASSOC)=8 $(CACHELINE)=128 $(C) spec_cpu2006/401.bzip2/src/specbzip $(O) "spec_cpu2006/401.bzip2/data/input.program 10" $(INSTRUCTIONS)
 
 specmcf_13:
-	$(ARM) $(D) spec_results/specmcf_13 $(SE) $(TYPE) $(CLOCK)=2GHz $(CACHES) $(L2) $(L1ISIZE)=256kB $(L1DSIZE)=256kB $(L2SIZE)=4MB $(L1IASSOC)=4 $(L1DASSOC)=4 $(L2ASSOC)=8 $(CACHELINE)=256 $(C) spec_cpu2006/429.mcf/src/specmcf $(O) "spec_cpu2006/429.mcf/data/inp.in" $(INSTRUCTIONS)
+	$(ARM) $(D) spec_results/specmcf_13 $(SE) $(TYPE) $(CLOCK)=2GHz $(CACHES) $(L2) $(L1ISIZE)=256kB $(L1DSIZE)=256kB $(L2SIZE)=4MB $(L1IASSOC)=4 $(L1DASSOC)=4 $(L2ASSOC)=8 $(CACHELINE)=128 $(C) spec_cpu2006/429.mcf/src/specmcf $(O) "spec_cpu2006/429.mcf/data/inp.in" $(INSTRUCTIONS)
 
 spechmmer_13:
-	$(ARM) $(D) spec_results/spechmmer_13 $(SE) $(TYPE) $(CLOCK)=2GHz $(CACHES) $(L2) $(L1ISIZE)=256kB $(L1DSIZE)=256kB $(L2SIZE)=4MB $(L1IASSOC)=4 $(L1DASSOC)=4 $(L2ASSOC)=8 $(CACHELINE)=256 $(C) spec_cpu2006/456.hmmer/src/spechmmer $(O) "--fixed 0 --mean 325 --num 45000 --sd 200 --seed 0 spec_cpu2006/456.hmmer/data/bombesin.hmm" $(INSTRUCTIONS)
+	$(ARM) $(D) spec_results/spechmmer_13 $(SE) $(TYPE) $(CLOCK)=2GHz $(CACHES) $(L2) $(L1ISIZE)=256kB $(L1DSIZE)=256kB $(L2SIZE)=4MB $(L1IASSOC)=4 $(L1DASSOC)=4 $(L2ASSOC)=8 $(CACHELINE)=128 $(C) spec_cpu2006/456.hmmer/src/spechmmer $(O) "--fixed 0 --mean 325 --num 45000 --sd 200 --seed 0 spec_cpu2006/456.hmmer/data/bombesin.hmm" $(INSTRUCTIONS)
 
 specsjeng_13:
-	$(ARM) $(D) spec_results/specsjeng_13 $(SE) $(TYPE) $(CLOCK)=2GHz $(CACHES) $(L2) $(L1ISIZE)=256kB $(L1DSIZE)=256kB $(L2SIZE)=4MB $(L1IASSOC)=4 $(L1DASSOC)=4 $(L2ASSOC)=8 $(CACHELINE)=256 $(C) spec_cpu2006/458.sjeng/src/specsjeng $(O) "spec_cpu2006/458.sjeng/data/test.txt" $(INSTRUCTIONS)
+	$(ARM) $(D) spec_results/specsjeng_13 $(SE) $(TYPE) $(CLOCK)=2GHz $(CACHES) $(L2) $(L1ISIZE)=256kB $(L1DSIZE)=256kB $(L2SIZE)=4MB $(L1IASSOC)=4 $(L1DASSOC)=4 $(L2ASSOC)=8 $(CACHELINE)=128 $(C) spec_cpu2006/458.sjeng/src/specsjeng $(O) "spec_cpu2006/458.sjeng/data/test.txt" $(INSTRUCTIONS)
 
 speclibm_13:
-	$(ARM) $(D) spec_results/speclibm_13 $(SE) $(TYPE) $(CLOCK)=2GHz $(CACHES) $(L2) $(L1ISIZE)=256kB $(L1DSIZE)=256kB $(L2SIZE)=4MB $(L1IASSOC)=4 $(L1DASSOC)=4 $(L2ASSOC)=8 $(CACHELINE)=256 $(C) spec_cpu2006/470.lbm/src/speclibm $(O) "20 spec_cpu2006/470.lbm/data/lbm.in 0 1 spec_cpu2006/470.lbm/data/100_100_130_cf_a.of" $(INSTRUCTIONS)
-
-	
+	$(ARM) $(D) spec_results/speclibm_13 $(SE) $(TYPE) $(CLOCK)=2GHz $(CACHES) $(L2) $(L1ISIZE)=256kB $(L1DSIZE)=256kB $(L2SIZE)=4MB $(L1IASSOC)=4 $(L1DASSOC)=4 $(L2ASSOC)=8 $(CACHELINE)=128 $(C) spec_cpu2006/470.lbm/src/speclibm $(O) "20 spec_cpu2006/470.lbm/data/lbm.in 0 1 spec_cpu2006/470.lbm/data/100_100_130_cf_a.of" $(INSTRUCTIONS)
 
 
 round1: specbzip_1 specmcf_1 spechmmer_1 specsjeng_1 speclibm_1
