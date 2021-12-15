@@ -116,8 +116,8 @@ Architecture optimization subsequently means constant concern for cost optimizat
 
 * __Cache size__ increases the cost of manufacturing because of more materials being used. Also hardware speed is reduced.
 
-* __Cache Associativity__ increase results in more complex hardware so the cost is somewhat increased. There is a significant decrease CPI because of smaller miss rates./
-
+* __Cache Associativity__ increase results in more complex hardware so the cost is somewhat increased. There is a significant decrease in CPI because of smaller miss rates.
+\
 We composed a _cost function_ that compares the cost of the changes we make to the caches to the speedup they offer. The system configuration that secures the lowest cost function value is the ideal.
 
 <img src="https://render.githubusercontent.com/render/math?math=\color{grey}5000\cdot\sqrt{assoc(L1I)}\cdot size(L1I)%2B5000\cdot\sqrt{assoc(L1D)}\cdot size(L1D)%2B1000\cdot\sqrt{assoc(L2)}\cdot size(L2)-\frac{1}{CPI}\cdot(\frac{8}{missrate(L1I)}%2B\frac{8}{missrateL1D}%2B\frac{2}{missrate(L2)})">
