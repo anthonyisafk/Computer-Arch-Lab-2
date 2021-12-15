@@ -120,7 +120,7 @@ Architecture optimization subsequently means constant concern for cost optimizat
 
 We composed a _cost function_ that compares the cost of the changes we make to the caches to the speedup they offer. The system configuration that secures the lowest cost function value is the ideal.
 
-Cost = ( 5 * l1cache.size + l2cache.size ) * sqrt( assoc ) 
+<img src="https://render.githubusercontent.com/render/math?math=\color{grey}5000\cdot\sqrt{assoc(L1I)}\cdot size(L1I)%2B5000\cdot\sqrt{assoc(L1D)}\cdot size(L1D)%2B1000\cdot\sqrt{assoc(L2)}\cdot size(L2)-\frac{1}{CPI}\cdot(\frac{8}{missrate(L1I)}%2B\frac{8}{missrateL1D}%2B\frac{2}{missrate(L2)})">
 
 ###### System Parameters 
 
@@ -140,10 +140,10 @@ Cost = ( 5 * l1cache.size + l2cache.size ) * sqrt( assoc )
 | round 12 | 256KB       | 256KB       | 4MB          | 2            | 2            | 8             |
 | round 13 | 256KB       | 256KB       | 4MB          | 4            | 4            | 8             |
 
-By looking at the following graph, we can see that the optimal configuration for all five benchmarks is this of __round 12__ .
-Therefore, this is the configuration that acheives high perfomance, while maintaining a relatively low cost.
+By looking at the following graph, we can see that the optimal configuration for all five benchmarks is this of __round 12__.
+Therefore, this is the configuration that achieves high perfomance, while maintaining a relatively low cost.
 
 ![cost.function](./output/cost_function.jpeg)
 
-Antonios Antoniou - 9482
-Dimitrios Xylogiannis - 9672
+### Antonios Antoniou - 9482
+### Dimitrios Xylogiannis - 9672
