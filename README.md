@@ -25,7 +25,7 @@ In this first part we ran a series of simulations based on the __se.py__ example
 | __specsjeng__ | 100000001        | 184174857       | 4279           | 5262377               | 5264051	     |
 | __speclibm__  | 100000001        | 100003637       | 2680	          | 1486955               | 1488538	     |
 
-* Commit is the last step to the execution of an instruction. Some instructions are executed speculatively, due to the existance of branches in the code, to which the processor cannot have the answer soon enough. So, if a mis-prediction of a branch's result occurs, the speculatively executed instructions are discarded. Therefore, the number of committed instructions and the number of executed instrctions can almost never be the same. 
+* Commit is the last step to the execution of an instruction. Some instructions are executed speculatively, due to the existance of branches in the code, to which the processor cannot have the answer soon enough. So, if a mis-prediction of a branch's result occurs, the speculatively executed instructions are being discarded. Therefore, the number of committed instructions the the number of executed instrctions can almost never be the same. 
 
 In the stats.txt file we extracted after the completion of the simulations, we weren't able to find a single statistic that showed the number of the executed instructions in total. We did manage to find though, the number of committed operations, which include micro operations, the the number of the discarded operations. The sum of these two can show us the total number of executed operations:
 
@@ -41,7 +41,7 @@ In the stats.txt file we extracted after the completion of the simulations, we w
 
 2. We also kept track of a list of statistics during these several simulations of the different benchmarks in order to check how well the system handled each one and to see where there was room for improvement. More specifically:
 
-|               | sim.seconds     | CPI             | dcache.miss.rate   | icache.miss.rate    | L2.miss.rate   |
+|               | sim.seconds     |CPI              | dcache.miss.rate   | icache.miss.rate    | L2.miss.rate   |
 | --------------| --------------- | --------------- | ------------------ | ------------------- | -------------- |
 | __specbzip__  | 0.083982	      | 1.679650	    | 770644	         | 747	               | 200996	        |
 | __specmcf__   | 0.064955	      | 1.299095        | 75340	             | 668914              | 39875	        |
@@ -62,7 +62,7 @@ We searched the _config.json_ files for clock information. More Specifically:
 
 * system.clk_domain.clock
 * system.cpu_clk_domain.clock
- 
+
 |                               |  1GHz   |  1.5GHz   | 2GHz     | 
 | ----------------------------- | ------- | --------- | -------- |
 |  system.clk_domain.clock      |  1000   |  1000     | 1000     |
@@ -115,8 +115,26 @@ In general, these were the most impactful changes that benefited the performance
 
 Architecture optimization subsequently means constant concern for cost optimization as well. There are certain factors that affect implementation and manufacturing costs. In general:
 
-*  __Cache size__ increases the cost of manufacturing because of more materials being used. Also hardware speed is reduced.
+*  __Cache size__ increases the cost of manufacturing and hit time.
 
-* __Cache Associativity__ increase results in more complex hardware so 
+* __Cache Associativity__ increase results in more complex hardware so the cost is somewhat increased. There is a significant decrease CPI because of smaller miss rates.
 
-![formula](https://render.githubusercontent.com/render/math?math=\large\color{grey}e^{i\pi}=-1)
+Cost = ( 5 * l1cache.size + l2cache.size ) * sqrt( assoc ) 
+
+1. Specbzip
+
+|          | icache.size | dcache.size | l2cache.size | icache.assoc | dcache.assoc | l2cache.assoc | COST FUNC  | CPI       |
+| -------- | ----------- | ----------- | ------------ | ------------ | ------------ | ------------- | ---------- | --------- |
+| round 1  | 32KB        | 64KB        | 2MB          | 2            | 2            | 8             | X          | 1.679650  |
+| round 2  | 128KB       | 64KB        | 1MB          | 1            | 2            | 2             |            |           |
+| round 3  | 256KB       | 64KB        | 1MB          | 2            | 4            | 2             |            |           |
+| round 4  | 256KB       | 128KB       | 1MB          | 2            | 2            | 2             | X          | 1.679650  |
+| round 5  | 256KB       | 128KB       | 1MB          | 2            | 2            | 2             |            |           |
+| round 6  | 256KB       | 128KB       | 1MB          | 2            | 4            | 2             |            |           |
+| round 7  | 512KB       | 128KB       | 1MB          | 2            | 2            | 2             | X          | 1.679650  |
+| round 8  | 512KB       | 128KB       | 1MB          | 4            | 2            | 2             |            |           |
+| round 9  | 512KB       | 256KB       | 1MB          | 4            | 4            | 2             |            |           |
+| round 10 | 512KB       | 256KB       | 2MB          | 4            | 2            | 4             | X          | 1.679650  |
+| round 11 | 32KB        | 64KB        | 2MB          | 2            | 2            | 4             |            |           |
+| round 12 | 256KB       | 256KB       | 4MB          | 2            | 2            | 8             |            |           |
+| round 13 | 256KB       | 256KB       | 4MB          | 4            | 4            | 8             |            |           |
