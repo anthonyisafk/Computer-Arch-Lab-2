@@ -12,8 +12,8 @@ specmcf = DataFrame(CSV.File("specmcf_results.txt"));
 results = [specbzip, specmcf, specsjeng, specsjeng, speclibm];
 benchmarks = ["specbzip", "specmcf", "spechmmer", "specsjeng", "speclibm"];
 
-groups = repeat(["L1D", "L1I", "L2"], inner = 11);
-names = repeat(1:11, outer = 3);
+groups = repeat(["L1D", "L1I", "L2"], inner = 13);
+names = repeat(1:13, outer = 3);
 
 
 for i = 1:5
