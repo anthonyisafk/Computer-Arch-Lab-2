@@ -115,7 +115,11 @@ In general, these were the most impactful changes that benefited the performance
 
 Architecture optimization subsequently means constant concern for cost optimization as well. There are certain factors that affect implementation and manufacturing costs. In general:
 
+<<<<<<< HEAD
 *  __Cache size__ increases the cost of manufacturing and hit time.
+=======
+* __Cache size__ increases the cost of manufacturing because of more materials being used. Also hardware speed is reduced.
+>>>>>>> 8bbd2152a48358d21f8356220aaace7c8585c01c
 
 * __Cache Associativity__ increase results in more complex hardware so the cost is somewhat increased. There is a significant decrease CPI because of smaller miss rates.
 

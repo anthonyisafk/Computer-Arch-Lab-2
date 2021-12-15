@@ -12,8 +12,8 @@ specmcf = DataFrame(CSV.File("specmcf_results.txt"));
 results = [specbzip, specmcf, specsjeng, specsjeng, speclibm];
 benchmarks = ["specbzip", "specmcf", "spechmmer", "specsjeng", "speclibm"];
 
-groups = repeat(["L1D", "L1I", "L2"], inner = 10);
-names = repeat(1:10, outer = 3);
+groups = repeat(["L1D", "L1I", "L2"], inner = 11);
+names = repeat(1:11, outer = 3);
 
 
 for i = 1:5
@@ -23,7 +23,10 @@ for i = 1:5
     g1 = StatsPlots.groupedbar(
         names, misses, group = groups,
         bar_position = :stack,
-        orientation = :horizontal
+        orientation = :horizontal,
+        xlabel = "Cumulative miss rates",
+        ylabel = "Round",
+        legend = :bottomleft
     );
 
     g2 = Plots.plot(
