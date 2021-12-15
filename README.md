@@ -67,7 +67,7 @@ We searched the _config.json_ files for clock information. More Specifically:
 |  system.clk_domain.clock      |  1000   |  1000     | 1000     |
 |  system.cpu_clk_domain.clock  |  500    |  667      | 500      | 
 
-**Note:** The clocks signify the numbers of _ticks_ per period. A tick is equal to 10<sup>-6</sup> seconds.
+**Note:** The clocks signify the numbers of _ticks_ per period. A tick is equal to 10<sup>-12</sup> seconds.
 \
 After looking at the _Options.py_ file in the **_common_** folder, we can make a conclusion about the default values of the system and CPU clocks:
 
