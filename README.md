@@ -27,7 +27,7 @@ In this first part we ran a series of simulations based on the *se.py* example C
 
 * __Commit__ is the last step to the execution of an instruction. Some instructions are executed speculatively, due to the existance of branches in the code, to which the processor cannot have the answer soon enough. So, if a mis-prediction of a branch's result occurs, the speculatively executed instructions are being discarded. Therefore, the number of committed instructions and the number of executed instrctions can almost never be the same. 
 
-In the *stats.txt* file we extracted after the completion of the simulations, we weren't able to find a single statistic that showed the number of the executed instructions in total. We did manage to find though, the number of committed operations, which include micro operations, the the number of the discarded operations. The sum of these two can show us the total number of executed operations:
+In the *stats.txt* file we extracted after the completion of the simulations, we weren't able to find a single statistic that showed the number of the executed instructions in total. We did manage to find though, the number of committed operations, which include micro operations, and the number of the discarded operations. The sum of these two can show us the total number of executed operations:
 
 |               | commited.ops    | discarded.ops   | 
 | --------------| --------------- | --------------- | 
