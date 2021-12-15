@@ -5,15 +5,15 @@ This is a report regarding the second lab of **Computer Architecture course at t
 \
 Below are the answers to the questions put in the context of the second lab exersice, in the order they were given:
 
-#### Part 1 - Running __SPEC CPU2006__ Benchmarks 
+#### Part 1 - Running *SPEC CPU2006* Benchmarks 
 
-In this first part we ran a series of simulations based on the __se.py__ example CPU model with L2 Cache configuration built within gem5. The simulations ended after completing the execution of 100000000 instructions in the following benchmarks:
+In this first part we ran a series of simulations based on the *se.py* example CPU model with L2 Cache configuration built within gem5. The simulations ended after completing the execution of 100000000 instructions in the following benchmarks:
 
-* specbzip
-* specmcf
-* spechmmer
-* specsjeng
-* speclibm
+* *specbzip*
+* *specmcf*
+* *spechmmer*
+* *specsjeng*
+* *speclibm*
 
 1. After the completion of all five simulations we were able to retrieve the following statistics regarding the simulated memory subsystem:
 
@@ -25,9 +25,9 @@ In this first part we ran a series of simulations based on the __se.py__ example
 | __specsjeng__ | 100000001        | 184174857       | 4279           | 5262377               | 5264051	     |
 | __speclibm__  | 100000001        | 100003637       | 2680	          | 1486955               | 1488538	     |
 
-* Commit is the last step to the execution of an instruction. Some instructions are executed speculatively, due to the existance of branches in the code, to which the processor cannot have the answer soon enough. So, if a mis-prediction of a branch's result occurs, the speculatively executed instructions are being discarded. Therefore, the number of committed instructions the the number of executed instrctions can almost never be the same. 
+* __Commit__ is the last step to the execution of an instruction. Some instructions are executed speculatively, due to the existance of branches in the code, to which the processor cannot have the answer soon enough. So, if a mis-prediction of a branch's result occurs, the speculatively executed instructions are being discarded. Therefore, the number of committed instructions the the number of executed instrctions can almost never be the same. 
 
-In the stats.txt file we extracted after the completion of the simulations, we weren't able to find a single statistic that showed the number of the executed instructions in total. We did manage to find though, the number of committed operations, which include micro operations, the the number of the discarded operations. The sum of these two can show us the total number of executed operations:
+In the *stats.txt* file we extracted after the completion of the simulations, we weren't able to find a single statistic that showed the number of the executed instructions in total. We did manage to find though, the number of committed operations, which include micro operations, the the number of the discarded operations. The sum of these two can show us the total number of executed operations:
 
 |               | commited.ops    | discarded.ops   | 
 | --------------| --------------- | --------------- | 
@@ -55,8 +55,7 @@ We can see the differences in these statistics among the 5 benchmarks more clear
 ![CPI and simulation times with default options](./output/round1/info.jpeg)
 ![Miss rates with default options](./output/round1/miss_rates.jpeg)
 
-3. Next, we ran the same set of bechmarks on a simulated system, which was exactly the same as before, with the only difference being that the *Clock Rate* was __1.5GHz__
-instead of __1GHz__ . We were able to change this parameter by adding a *CLOCK* variable in *MakeFile*: `(CLOCK = --cpu-clock)` and making it equal to 1.5GHz and 2GHz for the last simulation rounds.
+3. Next, we ran the same set of bechmarks on a simulated system, which was exactly the same as before, with the only difference being that the *Clock Rate* was __1.5GHz__. We were able to change this parameter by adding a *CLOCK* variable in *MakeFile*: `(CLOCK = --cpu-clock)` and making it equal to 1.5GHz and 2GHz for the last simulation rounds.
 \
 We searched the _config.json_ files for clock information. More Specifically:
 
@@ -115,24 +114,15 @@ In general, these were the most impactful changes that benefited the performance
 
 Architecture optimization subsequently means constant concern for cost optimization as well. There are certain factors that affect implementation and manufacturing costs. In general:
 
-<<<<<<< HEAD
-*  __Cache size__ increases the cost of manufacturing and hit time.
-
-* __Cache Associativity__ increase results in more complex hardware so the cost is somewhat increased. There is a significant decrease CPI because of smaller miss rates.
-
-We composed a __cost function__ that compares the cost of the changes we make to the caches to the *speedup* they offer.
-=======
 * __Cache size__ increases the cost of manufacturing because of more materials being used. Also hardware speed is reduced.
 
-* __Cache Associativity__ increase results in more complex hardware so the cost is somewhat increased. There is a significant decrease CPI because of smaller miss rates.
+* __Cache Associativity__ increase results in more complex hardware so the cost is somewhat increased. There is a significant decrease CPI because of smaller miss rates./
 
-We composed a _cost function_ that compares the cost of the changes we make to the caches to the speedup they offer.
->>>>>>> 4abf99e7ef82cbb1c7b290dc60e4e935e18c8bb4
-The system configuration that secures the lowest cost function value is the ideal.
+We composed a _cost function_ that compares the cost of the changes we make to the caches to the speedup they offer. The system configuration that secures the lowest cost function value is the ideal.
 
 Cost = ( 5 * l1cache.size + l2cache.size ) * sqrt( assoc ) 
 
-1. Specbzip
+###### System Parameters 
 
 |          | icache.size | dcache.size | l2cache.size | icache.assoc | dcache.assoc | l2cache.assoc |
 | -------- | ----------- | ----------- | ------------ | ------------ | ------------ | ------------- |
@@ -149,3 +139,11 @@ Cost = ( 5 * l1cache.size + l2cache.size ) * sqrt( assoc )
 | round 11 | 32KB        | 64KB        | 2MB          | 2            | 2            | 4             |
 | round 12 | 256KB       | 256KB       | 4MB          | 2            | 2            | 8             |
 | round 13 | 256KB       | 256KB       | 4MB          | 4            | 4            | 8             |
+
+By looking at the following graph, we can see that the optimal configuration for all five benchmarks is this of __round 12__ .
+Therefore, this is the configuration that acheives high perfomance, while maintaining a relatively low cost.
+
+![cost.function](./output/cost_function.jpeg)
+
+Antonios Antoniou - 9482
+Dimitrios Xylogiannis - 9672
