@@ -50,7 +50,7 @@ for i = 1:5
 
     p41 = PlotlyJS.scatter(
         y = results[i][!, 10],
-        x = 1:10,
+        x = 1:13,
         marker_symbol = "circle",
         marker_color = "royalblue",
         marker_size = 8,
@@ -61,7 +61,7 @@ for i = 1:5
 
     p42 = PlotlyJS.scatter(
         y = results[i][!, 11],
-        x = 1:10,
+        x = 1:13,
         marker_symbol = "circle",
         marker_color = "rebeccapurple",
         marker_size = 8,
