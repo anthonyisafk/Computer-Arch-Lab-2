@@ -17,7 +17,7 @@ In this first part we ran a series of simulations based on the *se.py* example C
 
 1. After the completion of all five simulations we were able to retrieve the following statistics regarding the simulated memory subsystem:
 
-|               |  committed.Insts | committed.ops   | discarded.ops  | L1.block.replacements | L2.accesses  |
+|               |  committed.Insts | committed.ops   | discarded.ops  | L2.block.replacements | L2.accesses  |
 | --------------| ---------------- | --------------- | -------------- | --------------------- | ------------ |
 | __specbzip__  | 100000001        | 100196363       | 190645         | 710569                | 712341       |
 | __specmcf__   | 100000001        | 109431937       | 690949         | 54452                 | 724390       |
