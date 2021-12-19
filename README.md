@@ -120,7 +120,7 @@ Architecture optimization subsequently means constant concern for cost optimizat
 
 We composed a _cost function_ that compares the cost of the changes we make to the caches to the speedup they offer. The system configuration that secures the lowest cost function value is the ideal. Using [this reference](https://www.sciencedirect.com/topics/computer-science/set-associative-cache#:~:text=Set%20associative%20caches%20generally%20have%20lower%20miss%20rates,because%20of%20the%20output%20multiplexer%20and%20additional%20comparators.) we discovered that associativity influences the complexity weakly and non-linearly, which led us to the formula below:
 
-<img src="https://render.githubusercontent.com/render/math?math=\color{grey}5000\cdot(\sqrt{assoc(L1I)}\cdot size(L1I)%2B \cdot\sqrt{assoc(L1D)}\cdot size(L1D)%2B \cdot\sqrt{assoc(L2)}\cdot size(L2))-\frac{1}{CPI}\cdot(\frac{8}{missrate(L1I)}%2B\frac{8}{missrateL1D}%2B\frac{2}{missrate(L2)})">
+<img src="https://render.githubusercontent.com/render/math?math=\color{grey}5000\cdot(\sqrt{assoc(L1I)}\cdot size(L1I)%2B\sqrt{assoc(L1D)}\cdot size(L1D)%2B \sqrt{assoc(L2)}\cdot size(L2))-\frac{1}{CPI}\cdot(\frac{8}{missrate(L1I)}%2B\frac{8}{missrateL1D}%2B\frac{2}{missrate(L2)})">
 
 **Note:** The sizes of L1 cache were in kB and the corresponding L2 sizes are kept in MB.
 
