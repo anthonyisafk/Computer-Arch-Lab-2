@@ -5,7 +5,7 @@ This is a report regarding the second lab of **Computer Architecture course at t
 \
 Below are the answers to the questions put in the context of the second lab exersice, in the order they were given:
 
-#### Part 1 - Running *SPEC CPU2006* Benchmarks 
+### Part 1 - Running *SPEC CPU2006* Benchmarks 
 
 In this first part we ran a series of simulations based on the *se.py* example CPU model with L2 Cache configuration built within gem5. The simulations ended after completing the execution of 100000000 instructions in the following benchmarks:
 
@@ -17,7 +17,7 @@ In this first part we ran a series of simulations based on the *se.py* example C
 
 1. After the completion of all five simulations we were able to retrieve the following statistics regarding the simulated memory subsystem:
 
-|               |  committed.Insts | committed.ops   | discarded.ops  | L1.block.replacements | L2.accesses  |
+|               |  committed.Insts | committed.ops   | discarded.ops  | L2.block.replacements | L2.accesses  |
 | --------------| ---------------- | --------------- | -------------- | --------------------- | ------------ |
 | __specbzip__  | 100000001        | 100196363       | 190645         | 710569                | 712341       |
 | __specmcf__   | 100000001        | 109431937       | 690949         | 54452                 | 724390       |
@@ -25,9 +25,9 @@ In this first part we ran a series of simulations based on the *se.py* example C
 | __specsjeng__ | 100000001        | 184174857       | 4279           | 5262377               | 5264051	     |
 | __speclibm__  | 100000001        | 100003637       | 2680	          | 1486955               | 1488538	     |
 
-* __Commit__ is the last step to the execution of an instruction. Some instructions are executed speculatively, due to the existance of branches in the code, to which the processor cannot have the answer soon enough. So, if a mis-prediction of a branch's result occurs, the speculatively executed instructions are being discarded. Therefore, the number of committed instructions the the number of executed instrctions can almost never be the same. 
+* __Commit__ is the last step to the execution of an instruction. Some instructions are executed speculatively, due to the existance of branches in the code, to which the processor cannot have the answer soon enough. So, if a mis-prediction of a branch's result occurs, the speculatively executed instructions are being discarded. Therefore, the number of committed instructions and the number of executed instrctions can almost never be the same. 
 
-In the *stats.txt* file we extracted after the completion of the simulations, we weren't able to find a single statistic that showed the number of the executed instructions in total. We did manage to find though, the number of committed operations, which include micro operations, the the number of the discarded operations. The sum of these two can show us the total number of executed operations:
+In the *stats.txt* file we extracted after the completion of the simulations, we weren't able to find a single statistic that showed the number of the executed instructions in total. We did manage to find though, the number of committed operations, which include micro operations, and the number of the discarded operations. The sum of these two can show us the total number of executed operations:
 
 |               | commited.ops    | discarded.ops   | 
 | --------------| --------------- | --------------- | 
@@ -67,7 +67,7 @@ We searched the _config.json_ files for clock information. More Specifically:
 |  system.clk_domain.clock      |  1000   |  1000     | 1000     |
 |  system.cpu_clk_domain.clock  |  500    |  667      | 500      | 
 
-**Note:** The clocks signify the numbers of _ticks_ per period. A tick is equal to 10<sup>-6</sup> seconds.
+**Note:** The clocks signify the numbers of _ticks_ per period. A tick is equal to 10<sup>-12</sup> seconds.
 \
 After looking at the _Options.py_ file in the **_common_** folder, we can make a conclusion about the default values of the system and CPU clocks:
 
@@ -90,7 +90,7 @@ Thus, we expect an additional CPU to be configured at 2GHz by default.
 \
 What needs to be remarked is the fact that the CPU clock doesn't directly affect the simulation times, as we may have expected. This is most likely a result of the fact that the system and CPU clocks don't coincide, which means perfect synchronisation is likely unattainable. In a nutshell, the CPU may be ready to execute another operation, but the caches probably didn't have the time to get the operands ready. Consequently, the CPU has to stall for the most part, leading to cycles completely lacking of operations.
 
-#### Part 2 - Design Exploration
+### Part 2 - Design Exploration
 
 In this part we ran 9 rounds of simulations of the above mentioned benchmarks. In each round, we changed single or multiple parameters regarding the CPU and the memory subsystem. More specifically, we messed with:
 
@@ -110,13 +110,13 @@ The size increase of the DCache, on the other hand, is more obvious to affect pe
 \
 In general, these were the most impactful changes that benefited the performance. 
 
-#### Part 3 - Cost / Performance Optimization
+### Part 3 - Cost / Performance Optimization
 
 Architecture optimization subsequently means constant concern for cost optimization as well. There are certain factors that affect implementation and manufacturing costs. In general:
 
 * __Cache size__ increases the cost of manufacturing because of more materials being used. Also hardware speed is reduced.
 
-* __Cache Associativity__ increase results in more complex hardware so the cost is somewhat increased. There is a significant decrease CPI because of smaller miss rates./
+* __Cache Associativity__ increase results in more complex hardware so the cost is somewhat increased. There is a significant decrease in CPI because of smaller miss rates./
 
 We composed a _cost function_ that compares the cost of the changes we make to the caches to the speedup they offer. The system configuration that secures the lowest cost function value is the ideal. Using [this reference](https://www.sciencedirect.com/topics/computer-science/set-associative-cache#:~:text=Set%20associative%20caches%20generally%20have%20lower%20miss%20rates,because%20of%20the%20output%20multiplexer%20and%20additional%20comparators.) we discovered that associativity influences the complexity weakly and non-linearly, which led us to the formula below:
 
