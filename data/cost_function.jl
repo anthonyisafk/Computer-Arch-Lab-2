@@ -35,7 +35,7 @@ for i = 1:5
     for j = 1:13
         cost = 5000 * sqrt(assoc_l1i[j]) * size_l1i[j] +
             5000 * sqrt(assoc_l1i[j]) * size_l1i[j] +
-            1000 * sqrt(assoc_l2[j]) * size_l2[j] -
+            5000 * sqrt(assoc_l2[j]) * size_l2[j] -
             (1 / results[i][j, 3]) *
             (8 / results[i][j, 7] + 8 / results[i][j, 8] + 2 / results[i][j, 9]); 
 
