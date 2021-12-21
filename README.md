@@ -5,7 +5,7 @@ This is a report regarding the second lab of **Computer Architecture course at t
 \
 Below are the answers to the questions put in the context of the second lab exersice, in the order they were given:
 
-### Part 1 - Running *SPEC CPU2006* Benchmarks 
+## Part 1 - Running *SPEC CPU2006* Benchmarks 
 
 In this first part we ran a series of simulations based on the *se.py* example CPU model with L2 Cache configuration built within gem5. The simulations ended after completing the execution of 100000000 instructions in the following benchmarks:
 
@@ -90,7 +90,7 @@ Thus, we expect an additional CPU to be configured at 2GHz by default.
 \
 What needs to be remarked is the fact that the CPU clock doesn't directly affect the simulation times, as we may have expected. This is most likely a result of the fact that the system and CPU clocks don't coincide, which means perfect synchronisation is likely unattainable. In a nutshell, the CPU may be ready to execute another operation, but the caches probably didn't have the time to get the operands ready. Consequently, the CPU has to stall for the most part, leading to cycles completely lacking of operations.
 
-### Part 2 - Design Exploration
+## Part 2 - Design Exploration
 
 In this part we ran 9 rounds of simulations of the above mentioned benchmarks. In each round, we changed single or multiple parameters regarding the CPU and the memory subsystem. More specifically, we messed with:
 
@@ -110,7 +110,7 @@ The size increase of the DCache, on the other hand, is more obvious to affect pe
 \
 In general, these were the most impactful changes that benefited the performance. 
 
-### Part 3 - Cost / Performance Optimization
+## Part 3 - Cost / Performance Optimization
 
 Architecture optimization subsequently means constant concern for cost optimization as well. There are certain factors that affect implementation and manufacturing costs. In general:
 
