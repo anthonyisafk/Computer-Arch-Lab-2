@@ -147,5 +147,12 @@ Therefore, this is the configuration that achieves high perfomance, while mainta
 
 ![cost.function](./output/cost_function.jpeg)
 
+## Reviewing what we did
+During the execution of the various tasks required for the completion of the assignment, we were able to discover how useful and powerful the composure of a properly structured and thought-out Makefile can be. The majority of the tests we conducted were based on the Makefile script we have attached to the project and made our job much easier. This is due to the fact that it allowed us to be productive while we had time, not having to wait for test results when we needed to use the resources we had available.
+\
+Moreover, we were able to get even more familiar with Git, avoiding merge conflicts when working on the same parts of the projects simultaneously, and version control in general.
+\
+Needless to say, this part of the assignment was also most useful to us learning the purpose and the fundamentals of the course at hand, enabling us to discover the influence of each component of a computer architecture design both on performance and manufacturing cost. Generally speaking, we were able to discuss the matters each member of the team had engaged in and gained knowledge through solving the challenges each one had to face.
+
 ### Antonios Antoniou - 9482
 ### Dimitrios Xylogiannis - 9672
